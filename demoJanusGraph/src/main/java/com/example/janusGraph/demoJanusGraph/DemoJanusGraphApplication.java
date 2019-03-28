@@ -35,7 +35,7 @@ public class DemoJanusGraphApplication {
 
 		System.out.println(g.V().count().next() + " ---=-=-=-count is ");
 		
-	//	generateGraphData(graph);
+		generateGraphData(graph);
 
 		// look up vertex by name can use a composite index in JanusGraph
 		final Optional<Map<Object, Object>> v = g.V().has("name", "marko").valueMap(true).tryNext();
@@ -66,18 +66,18 @@ public class DemoJanusGraphApplication {
 		System.exit(0);
 	}
 	
-//	public static void generateGraphData(JanusGraph graph) {
-//		JanusGraphTransaction tx = graph.newTransaction();
-//		// vertices
-//
-//		Vertex v1 = tx.addVertex(T.label, "person1", "name", "marko1", "age", 26);
-//		Vertex v2 = tx.addVertex(T.label, "software1", "name", "lop1");
-//		
-//		v1.addEdge("created", v2);
-//
-//		// commit the transaction to disk
-//		tx.commit();
-//	}
+	public static void generateGraphData(JanusGraph graph) {
+		JanusGraphTransaction tx = graph.newTransaction();
+		// vertices
+
+		Vertex v1 = tx.addVertex(T.label, "person1", "name", "marko1", "age", 26);
+		Vertex v2 = tx.addVertex(T.label, "software1", "name", "lop1");
+		
+		v1.addEdge("created", v2);
+
+		// commit the transaction to disk
+		tx.commit();
+	}
 	
 	
 	
